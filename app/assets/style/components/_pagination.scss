@@ -1,0 +1,24 @@
+.pagination {
+  @apply flex rounded;
+}
+.page-item {
+  @apply border;
+  & + .page-item {
+    @apply border-l-0;
+  }
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+  &:last-child {
+    @apply bg-gray-100;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+}
+.page-link {
+  @apply text-center block p-1 hover:bg-success hover:text-white;
+  &.active {
+    @apply bg-success text-white;
+  }
+}

@@ -1,0 +1,15 @@
+.table {
+  @apply border-collapse w-full text-left table-auto;
+  & > :not(caption) > * {
+    @apply border-b;
+  }
+
+  tbody {
+    & > tr {
+      @apply border-gray-400;
+      & > * {
+        @apply py-4;
+      }
+    }
+  }
+}

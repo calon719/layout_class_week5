@@ -1,0 +1,5 @@
+.logo {
+  @include img-link;
+  height: 40px;
+  background-image: url("./../images/logo-ANSWER.svg");
+}

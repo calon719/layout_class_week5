@@ -1,0 +1,38 @@
+.btn {
+  @apply inline-block py-2 px-8 border rounded-sm cursor-pointer;
+  border-color: transparent;
+  &:not(:disabled) {
+    @apply hover:opacity-75;
+  }
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
+}
+.btn-success {
+  @apply bg-success text-white #{!important};
+}
+.btn-danger {
+  @apply bg-danger text-white #{!important};
+}
+.btn-dark {
+  @apply bg-dark text-white #{!important};
+}
+
+.btn-outline-success {
+  @apply border-success text-success #{!important};
+  &:disabled {
+    @apply opacity-60;
+  }
+}
+.btn-outline-danger {
+  @apply border-danger text-danger #{!important};
+  &:disabled {
+    @apply opacity-60;
+  }
+}
+.btn-outline-light {
+  @apply border-gray-600 text-gray-600 #{!important};
+  &:disabled {
+    @apply border-gray-400 text-gray-400 #{!important};
+  }
+}
