@@ -2,8 +2,8 @@
 
 $(document).ready(function () {
   // modal
-  $(".modal-toggle").click(function (e) {
-    event.preventDefault();
+  $("body").on("click", ".modal-toggle", function (e) {
+    e.preventDefault();
     var modalOpened = $(document).find(".modal[data-modal-toggle='true']");
     var target = $(this).attr("data-modal-target");
     var status = $("#" + target).attr("data-modal-toggle");
@@ -13,7 +13,7 @@ $(document).ready(function () {
       $("#" + target).fadeIn().attr("data-modal-toggle", "true");
     }
   });
-  $(".modal").click(function (e) {
+  $("body").on("click", ".modal", function (e) {
     var modalDialog = $(".modal-dialog");
 
     if (!modalDialog.is(e.target) && modalDialog.has(e.target).length === 0) {
@@ -24,13 +24,25 @@ $(document).ready(function () {
       }
     }
   });
-  $(".modal-dialog *[data-modal-close='closeBtn']").click(function (e) {
+  $("body").on("click", ".modal-dialog *[data-modal-close='closeBtn']", function (e) {
     e.preventDefault();
     var status = $(this).parents(".modal").attr("data-modal-toggle");
 
     if (status === "true") {
       $(".modal").fadeOut().attr("data-modal-toggle", "false");
     }
+  }); // id 順序反轉
+
+  $("#reverseBtn").click(function (e) {
+    event.preventDefault();
+    var trAry = $("#reverseBtn").parents("thead").siblings("tbody").children("tr");
+    var newTrAry = $.map(trAry, function (item, i) {
+      return trAry[trAry.length - 1 - i];
+    });
+    $("#reverseBtn").parents("thead").siblings("tbody").empty();
+    $.each(newTrAry, function (i, item) {
+      $("#reverseBtn").parents("thead").siblings("tbody").append(item);
+    });
   });
 });
 //# sourceMappingURL=all.js.map
