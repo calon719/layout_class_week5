@@ -35,13 +35,15 @@ $(document).ready(function () {
 
   $("#reverseBtn").click(function (e) {
     event.preventDefault();
-    var trAry = $("#reverseBtn").parents("thead").siblings("tbody").children("tr");
+    var tbody = $("#reverseBtn").parents("thead").siblings("tbody");
+    var trAry = tbody.children("tr");
     var newTrAry = $.map(trAry, function (item, i) {
       return trAry[trAry.length - 1 - i];
     });
-    $("#reverseBtn").parents("thead").siblings("tbody").empty();
+    $("#reverseBtn span").toggleClass("transform rotate-180");
+    tbody.empty();
     $.each(newTrAry, function (i, item) {
-      $("#reverseBtn").parents("thead").siblings("tbody").append(item);
+      tbody.append(item);
     });
   });
 });
