@@ -37,13 +37,17 @@ $(document).ready(function () {
   // id 順序反轉
   $("#reverseBtn").click(function (e) {
     event.preventDefault();
-    let trAry = $("#reverseBtn").parents("thead").siblings("tbody").children("tr");
+    let tbody = $("#reverseBtn").parents("thead").siblings("tbody");
+    let trAry = tbody.children("tr");
     let newTrAry = $.map(trAry, function (item, i) {
       return trAry[trAry.length - 1 - i];
     });
-    $("#reverseBtn").parents("thead").siblings("tbody").empty();
+
+    $("#reverseBtn span").toggleClass("transform rotate-180");
+
+    tbody.empty();
     $.each(newTrAry, function (i, item) {
-      $("#reverseBtn").parents("thead").siblings("tbody").append(item);
+      tbody.append(item);
     });
   });
 });
